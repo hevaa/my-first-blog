@@ -43,4 +43,4 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def home_page(request):
-    return HttpResponse('<html><title>Heather\'s blog</title></html>')
+    return render(request, 'home.html')
