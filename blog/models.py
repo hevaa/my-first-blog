@@ -18,4 +18,4 @@ class Post(models.Model):
         return self.title
 
 class Item(models.Model):
-    pass
+    text = models.TextField(default='')
