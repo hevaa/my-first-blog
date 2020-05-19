@@ -4,7 +4,6 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
-from django.http import HttpResponse
 from .models import Item
 
 # Create your views here.
@@ -44,10 +43,12 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 def home_page(request):
-    item = Item()
-    item.text = request.POST.get('item_text', '')
-    item.save()
+    if request.method == 'POST':
+        new_item_text = request.POST['item_text']
+        Item.objects.create(text=new_item_text)
+    else:
+        new_item_text = ''
 
     return render(request, 'home.html', {
-        'new_item_text': request.POST.get('item_text', ''),
+        'new_item_text': new_item_text,
     })
