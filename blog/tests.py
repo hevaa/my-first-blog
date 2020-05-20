@@ -10,7 +10,7 @@ class HomePageTest(TestCase):
 
     def test_home_page_returns_correct_html(self):
         response = self.client.get('/')
-        self.assertTemplateUsed(response, 'blog/home.html')
+        self.assertTemplateUsed(response, 'home.html')
 
     #def test_can_save_a_POST_request(self):
     #    self.client.post('/', data={'item_text': 'A new list item'})
