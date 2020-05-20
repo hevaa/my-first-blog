@@ -16,8 +16,7 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
 
-
-    def test_can_use_home_page(self):  
+    def test_can_use_home_page(self):
         # Edith has heard about a cool new online blog. She goes
         # to check out its homepage
         self.browser.get('http://127.0.0.1:8000/')
@@ -27,48 +26,21 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
-        # She is invited to view the page of blogs straight away
+        self.fail('Finish the test!')
+
+		# Satisfied, she goes back to sleep
+
+    def test_can_use_blog_page(self):
+        # She is invited to view the page of blogs
         self.browser.get('http://127.0.0.1:8000/blog')
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
+    def test_can_use_cv_page(self):
         # She is invited to view the cv page
         self.browser.get('http://127.0.0.1:8000/cv')
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
-
-        # She types "Buy peacock feathers" into a text box (Edith's hobby
-        # is tying fly-fishing lures)
-        #inputbox.send_keys('Buy peacock feathers')
-
-        # When she hits enter, the page updates, and now the page lists
-        # "1: Buy peacock feathers" as an item in a to-do list table
-        #inputbox.send_keys(Keys.ENTER)
-        #time.sleep(1)
-        #self.check_for_row_in_list_table('1: Buy peacock feathers')
-
-        # There is still a text box inviting her to add another item. She
-        # enters "Use peacock feathers to make a fly" (Edith is very
-        # methodical)
-        #inputbox = self.browser.find_element_by_id('id_new_item')
-        #inputbox.send_keys('Use peacock feathers to make a fly')
-        #inputbox.send_keys(Keys.ENTER)
-        #time.sleep(1)
-
-        # The page updates again, and now shows both items on her list
-        #self.check_for_row_in_list_table('1: Buy peacock feathers')
-        #self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
-
-
-        # Edith wonders whether the site will remember her list. Then she sees
-        # that the site has generated a unique URL for her -- there is some
-        # explanatory text to that effect.
-        self.fail('Finish the test!')
-
-
-		# She visits that URL - her to-do list is still there.
-
-		# Satisfied, she goes back to sleep
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  

@@ -5,7 +5,6 @@ from django.http import HttpRequest
 from blog.views import home_page
 from blog.models import Item
 
-
 class HomePageTest(TestCase):
 
     def test_home_page_returns_correct_html(self):
@@ -13,11 +12,13 @@ class HomePageTest(TestCase):
         self.assertTemplateUsed(response, 'home.html')
 
 class BlogPageTest(TestCase):
+
     def test_blog_page_returns_correct_html(self):
         response = self.client.get('/blog/')
         self.assertTemplateUsed(response, 'blog/post_list.html')
 
 class CVPageTest(TestCase):
+    
     def test_cv_page_returns_correct_html(self):
         response = self.client.get('/cv/')
         self.assertTemplateUsed(response, 'blog/cv_page.html')
