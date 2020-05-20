@@ -17,15 +17,15 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn(row_text, [row.text for row in rows])
 
 
-    #def test_can_start_a_list_and_retrieve_it_later(self):  
+    def test_can_start_a_list_and_retrieve_it_later(self):  
         # Edith has heard about a cool new online blog. She goes
         # to check out its homepage
-        #self.browser.get('http://127.0.0.1:8000/')
+        self.browser.get('http://127.0.0.1:8000/')
 
         # She notices the page title and header mention Heather
-        #self.assertIn('Heather\'s blog', self.browser.title)
-        #header_text = self.browser.find_element_by_tag_name('h1').text  
-        #self.assertIn('Heather\'s blog', header_text)
+        self.assertIn('Heather\'s Blog', self.browser.title)
+        header_text = self.browser.find_element_by_tag_name('h1').text  
+        self.assertIn('Heather\'s Blog', header_text)
 
         # She is invited to enter a to-do item straight away
         #inputbox = self.browser.find_element_by_id('id_new_item')
