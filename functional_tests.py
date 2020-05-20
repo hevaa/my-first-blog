@@ -26,10 +26,6 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
-        self.fail('Finish the test!')
-
-		# Satisfied, she goes back to sleep
-
     def test_can_use_blog_page(self):
         # She is invited to view the page of blogs
         self.browser.get('http://127.0.0.1:8000/blog')
@@ -41,6 +37,9 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://127.0.0.1:8000/cv')
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
+
+        # Satisfied, she goes back to sleep
+        self.fail('Finish the test!')
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  

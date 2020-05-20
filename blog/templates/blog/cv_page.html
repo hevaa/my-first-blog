@@ -4,7 +4,17 @@
     <div>Curriculum vitae (CV)</div>
     <div>Hi I'm Heather</div>
     <p><b>email</b>: ***@hotmail.com</p>
+
+    <p>bio</p>
     {% if user.is_authenticated %}
-	    
+	    <form method="POST">
+		    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+		    {% csrf_token %}
+		</form>
 	{% endif %}
+	<table id="id_list_table">
+	    {% for item in items %}
+	        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+	    {% endfor %}
+	</table>
 {% endblock %}
