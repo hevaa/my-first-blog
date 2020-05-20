@@ -1,17 +1,21 @@
 <html>
-	<head>
-    	<title>Heather's blog</title>
-	</head>
-	<body>
-		<h1>Heather's blog</h1>
-		​<form method="POST">
-		    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
-		    {% csrf_token %}
-		</form>
-		<table id="id_list_table">
-		    {% for item in items %}
-		        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
-		    {% endfor %}
-		</table>
-	</body>
+    <head>
+        <title>Heather's blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Heather's Blog</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
