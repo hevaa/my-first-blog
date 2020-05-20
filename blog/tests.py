@@ -23,6 +23,12 @@ class CVPageTest(TestCase):
         response = self.client.get('/cv/')
         self.assertTemplateUsed(response, 'blog/cv_display.html')
 
+class CVEditPageTest(TestCase):
+
+    def test_cv_page_returns_correct_html(self):
+        response = self.client.get('/cv/edit/')
+        self.assertTemplateUsed(response, 'blog/cv_edit.html')
+
 class ItemModelTest(TestCase):
 
     def test_saving_and_retrieving_items(self):

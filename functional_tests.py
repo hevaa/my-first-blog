@@ -28,20 +28,19 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_can_use_blog_page(self):
         # She is invited to view the page of blogs
-        self.browser.get('http://127.0.0.1:8000/blog')
+        self.browser.get('http://127.0.0.1:8000/blog/')
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
     def test_can_use_cv_page(self):
         # She is invited to view the cv page
-        self.browser.get('http://127.0.0.1:8000/cv')
+        self.browser.get('http://127.0.0.1:8000/cv/')
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
         # She goes to the edit page
-        self.browser.get('http://127.0.0.1:8000/cv/edit')
-        time.sleep(1)
-        
+        self.browser.get('http://127.0.0.1:8000/cv/edit/')
+
         # She is checks if the edit is there for skills
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
