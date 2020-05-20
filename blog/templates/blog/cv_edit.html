@@ -1,0 +1,26 @@
+{% extends 'blog/cv_page.html' %}
+
+{% block edit %}
+{% endblock %}
+
+{% block bio %}
+	<p>bio</p>
+{% endblock %}
+
+{% block skills %}
+	{% if user.is_authenticated %}
+	    <form method="POST">
+		    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+		    {% csrf_token %}
+		</form>
+	{% endif %}
+{% endblock %}
+
+{% block qual %}
+{% endblock %}
+
+{% block employ %}
+{% endblock %}
+
+{% block extra %}
+{% endblock %}

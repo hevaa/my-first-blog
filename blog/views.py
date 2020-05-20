@@ -53,4 +53,7 @@ def cv_page(request):
         return redirect('/cv/')
 
     items = Item.objects.all()
-    return render(request, 'blog/cv_page.html', {'items': items})
+    return render(request, 'blog/cv_display.html', {'items': items})
+
+def cv_edit(request):
+    return render(request, 'blog/cv_edit.html')
