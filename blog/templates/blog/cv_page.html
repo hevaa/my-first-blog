@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>Curriculum vitae (CV)</div>
-    
+    <div class="subheading"><h1>Curriculum vitae (CV)</h1></div>
+
     {% block edit %}
     {% endblock %}
 
-    <div>Hi I'm Heather</div>
+    <div class="subsubheading"><h1>Hi I'm Heather</h1></div>
     <p><b>email</b>: ***@hotmail.com</p>
-
+	
+	<h2>Bio</h2>
     {% block bio %}
     {% endblock %}
 
+    <h2>Skills</h2>
     <table id="id_list_table">
 	    {% for item in items %}
 	        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
@@ -21,12 +23,15 @@
     {% block skills %}
     {% endblock %}
 
+    <h2>Qualifications</h2>
     {% block qual %}
     {% endblock %}
 
+    <h2>Employment History</h2>
     {% block employ %}
     {% endblock %}
 
+    <h2>Extracurricular</h2>
     {% block extra %}
     {% endblock %}
 {% endblock %}
