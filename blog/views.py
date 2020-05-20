@@ -4,6 +4,14 @@ from .models import Post, Item
 from .forms import PostForm
 
 # Create your views here.
+def home_page(request):
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'])
+        return redirect('/')
+
+    items = Item.objects.all()
+    return render(request, 'home.html', {'items': items})
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -39,10 +47,10 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-def home_page(request):
+def cv_page(request):
     if request.method == 'POST':
         Item.objects.create(text=request.POST['item_text'])
-        return redirect('/')
+        return redirect('/cv/')
 
     items = Item.objects.all()
-    return render(request, 'home.html', {'items': items})
+    return render(request, 'blog/cv_page.html', {'items': items})
