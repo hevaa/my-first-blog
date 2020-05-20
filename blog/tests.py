@@ -12,6 +12,36 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
 
+class BlogPageTest(TestCase):
+    def test_blog_page_returns_correct_html(self):
+        response = self.client.get('/blog/')
+        self.assertTemplateUsed(response, 'blog/post_list.html')
+
+class CVPageTest(TestCase):
+    def test_cv_page_returns_correct_html(self):
+        response = self.client.get('/cv/')
+        self.assertTemplateUsed(response, 'blog/cv.html')
+
+class ItemModelTest(TestCase):
+
+    def test_saving_and_retrieving_items(self):
+        first_item = Item()
+        first_item.text = 'The first (ever) list item'
+        first_item.save()
+
+        second_item = Item()
+        second_item.text = 'Item the second'
+        second_item.save()
+
+        saved_items = Item.objects.all()
+        self.assertEqual(saved_items.count(), 2)
+
+        first_saved_item = saved_items[0]
+        second_saved_item = saved_items[1]
+        self.assertEqual(first_saved_item.text, 'The first (ever) list item')
+        self.assertEqual(second_saved_item.text, 'Item the second')
+
+##SAVED TEST
     #def test_can_save_a_POST_request(self):
     #    self.client.post('/', data={'item_text': 'A new list item'})
 
@@ -36,22 +66,3 @@ class HomePageTest(TestCase):
 
     #    self.assertIn('itemey 1', response.content.decode())
     #    self.assertIn('itemey 2', response.content.decode())
-
-class ItemModelTest(TestCase):
-
-    def test_saving_and_retrieving_items(self):
-        first_item = Item()
-        first_item.text = 'The first (ever) list item'
-        first_item.save()
-
-        second_item = Item()
-        second_item.text = 'Item the second'
-        second_item.save()
-
-        saved_items = Item.objects.all()
-        self.assertEqual(saved_items.count(), 2)
-
-        first_saved_item = saved_items[0]
-        second_saved_item = saved_items[1]
-        self.assertEqual(first_saved_item.text, 'The first (ever) list item')
-        self.assertEqual(second_saved_item.text, 'Item the second')
