@@ -38,6 +38,17 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
+        # She goes to the edit page
+        self.browser.get('http://127.0.0.1:8000/cv/edit')
+        time.sleep(1)
+        
+        # She is checks if the edit is there for skills
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertEqual(
+            inputbox.get_attribute('placeholder'),
+            'Enter a to-do item'
+        )
+
         # Satisfied, she goes back to sleep
         self.fail('Finish the test!')
 
@@ -45,13 +56,6 @@ if __name__ == '__main__':
     unittest.main(warnings='ignore')  
 
 ## SAVED TESTS
-        # She is invited to view the page of blogs straight away
-        #inputbox = self.browser.find_element_by_id('id_new_item')
-        #self.assertEqual(
-        #    inputbox.get_attribute('placeholder'),
-        #    'Enter a to-do item'
-        #)
-
         # She types "Buy peacock feathers" into a text box (Edith's hobby
         # is tying fly-fishing lures)
         #inputbox.send_keys('Buy peacock feathers')

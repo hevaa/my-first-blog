@@ -18,10 +18,10 @@ class BlogPageTest(TestCase):
         self.assertTemplateUsed(response, 'blog/post_list.html')
 
 class CVPageTest(TestCase):
-    
+
     def test_cv_page_returns_correct_html(self):
         response = self.client.get('/cv/')
-        self.assertTemplateUsed(response, 'blog/cv_page.html')
+        self.assertTemplateUsed(response, 'blog/cv_display.html')
 
 class ItemModelTest(TestCase):
 
