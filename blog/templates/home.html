@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p><a href="/blog/">test to blog</a></p>
-    <p><a href="/cv/">test to cv</a></p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="tiles text-center">
+                <h1>Blog posts</h1>
+                <p><a href="/blog/">test to blog</a></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <h1>Curriculum vitae (CV)</h1>
+                <p><a href="/cv/">test to cv</a></p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
