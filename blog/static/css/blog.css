@@ -48,7 +48,7 @@ h1, h2, h3, h4 {
     padding: 0 100px 0 100px;
 }
 
-.post h2 a, .post h2 a:visited {
+.post h2 a, .post h2 a:visited, .row.home a, .row.home a {
     color: #000000;
 }
 
