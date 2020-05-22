@@ -76,6 +76,11 @@ h1, h2, h3, h4 {
     color: #828282;
 }
 
-.breadcrumb {
-    margin-bottom: 0;
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #525252;
+    color: #a1a1a1;
+    text-align: center;
 }
