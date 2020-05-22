@@ -4,11 +4,13 @@
     <a href="{% url 'cv_edit' %}" class="top-menu"><span class="glyphicon glyphicon-arrow-left"></span></a>
 {% endblock %}
 
-{% block delete %}
+{% block skillsdelete %}
 	<h2>Database ID</h2>
 	<table id="id_list_table">
 	    {% for item in items %}
-	        <tr><td>{{ item.id }}</td></tr>
+	    	{% if item.category == "skills" %}
+	        	<tr><td>{{ item.id }}</td></tr>
+	        {% endif %}
 	    {% endfor %}
 	</table>
 
