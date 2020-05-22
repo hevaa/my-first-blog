@@ -19,3 +19,4 @@ class Post(models.Model):
 
 class Item(models.Model):
     text = models.TextField(default='')
+    category = models.TextField(default='')
