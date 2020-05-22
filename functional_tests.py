@@ -38,6 +38,7 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
+class EditCV(unittest.TestCase): 
     def test_can_use_cv_edit_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
@@ -48,7 +49,6 @@ class NewVisitorTest(unittest.TestCase):
         # She types into a text box (Edith's hobby
         # is web-dev)
         inputbox.send_keys('I am a web developer')
-
 
         # Edith wonders whether the site will remember this. Then she sees
         # that there is a back button
@@ -80,8 +80,8 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
 
         # The page updates again, and now shows both items on her list
-        self.check_for_row_in_list_table('HTML', 'id_skills_table')
-        self.check_for_row_in_list_table('DJANGO', 'id_skills_table')
+        self.check_for_row_in_list_table('• HTML', 'id_skills_table')
+        self.check_for_row_in_list_table('• DJANGO', 'id_skills_table')
 
         # Edith wonders whether the site will remember her list. Then she sees
         # that there is a back button
