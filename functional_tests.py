@@ -55,7 +55,7 @@ class EditCV(unittest.TestCase):
 
         # She clicks it - her bio is still there on the main CV page.
 
-    def test_can_use_cv_add_page(self):
+    def test_cv_add_skill_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/add')
 
@@ -67,7 +67,7 @@ class EditCV(unittest.TestCase):
         inputbox.send_keys('HTML')
 
         # When she hits enter, the page updates, and now the page lists
-        # "1: HTML" as an item in a to-do list table
+        # "•: HTML" as an item in a table
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
         self.check_for_row_in_list_table('HTML', 'id_skills_table')
@@ -83,7 +83,83 @@ class EditCV(unittest.TestCase):
         self.check_for_row_in_list_table('• HTML', 'id_skills_table')
         self.check_for_row_in_list_table('• DJANGO', 'id_skills_table')
 
-        # Edith wonders whether the site will remember her list. Then she sees
+    def test_cv_add_qual_page(self):
+        # She goes to the edit page
+        self.browser.get('http://127.0.0.1:8000/cv/edit/add')
+
+        # She is checks if she can add her qualifications
+        inputbox = self.browser.find_element_by_id('id_new_qual')     
+
+        # She types into a text box
+        inputbox.send_keys('GCSE')
+
+        # When she hits enter, the page updates
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.check_for_row_in_list_table('GCSE', 'id_qual_table')
+
+        # There is still a text box inviting her to add another item.
+        inputbox = self.browser.find_element_by_id('id_new_qual')
+        inputbox.send_keys('A LEVEL')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
+        # The page updates again, and now shows both items on her list
+        self.check_for_row_in_list_table('• GCSE', 'id_qual_table')
+        self.check_for_row_in_list_table('• A LEVEL', 'id_qual_table')
+
+    def test_cv_add_employ_page(self):
+        # She goes to the edit page
+        self.browser.get('http://127.0.0.1:8000/cv/edit/add')
+
+        # She is checks if she can add her employment history
+        inputbox = self.browser.find_element_by_id('id_new_employ')     
+
+        # She types into a text box
+        inputbox.send_keys('VODAFONE')
+
+        # When she hits enter, the page updates
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.check_for_row_in_list_table('VODAFONE', 'id_employ_table')
+
+        # There is still a text box inviting her to add another item.
+        inputbox = self.browser.find_element_by_id('id_new_employ')
+        inputbox.send_keys('BBC')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
+        # The page updates again, and now shows both items on her list
+        self.check_for_row_in_list_table('• VODAFONE', 'id_employ_table')
+        self.check_for_row_in_list_table('• BBC', 'id_employ_table')
+
+    def test_cv_add_extra_page(self):
+        # She goes to the edit page
+        self.browser.get('http://127.0.0.1:8000/cv/edit/add')
+
+        # She is checks if she can add extracurricular
+        inputbox = self.browser.find_element_by_id('id_new_extra')     
+
+        # She types into a text box
+        inputbox.send_keys('FISHING')
+
+        # When she hits enter, the page updates
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+        self.check_for_row_in_list_table('FISHING', 'id_extra_table')
+
+        # There is still a text box inviting her to add another item.
+        inputbox = self.browser.find_element_by_id('id_new_extra')
+        inputbox.send_keys('GAMING')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
+        # The page updates again, and now shows both items on her list
+        self.check_for_row_in_list_table('• FISHING', 'id_extra_table')
+        self.check_for_row_in_list_table('• GAMING', 'id_extra_table')
+
+
+        # Edith wonders whether the site will remember her lists. Then she sees
         # that there is a back button
 
         # She clicks it - her list is still there on the main CV page.
