@@ -38,25 +38,22 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
+    def test_can_use_cv_edit_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
 
-        # She is checks if the edit is there for skills
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertEqual(
-            inputbox.get_attribute('placeholder'),
-            'Enter a to-do item'
-        )
+        # She is checks if she can edit her bio
+        inputbox = self.browser.find_element_by_id('id_new_item')     
 
-        # She types "HTML" into a text box (Edith's hobby
+        # She types into a text box (Edith's hobby
         # is web-dev)
-        inputbox.send_keys('HTML')
+        inputbox.send_keys('I am a web developer')
 
         # When she hits enter, the page updates, and now the page lists
         # "1: HTML" as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('1: HTML')
+        self.check_for_row_in_list_table('I am a web developer')
 
         # There is still a text box inviting her to add another item. She
         # enters "DJANGO" (Edith is very methodical)
@@ -66,8 +63,8 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
 
         # The page updates again, and now shows both items on her list
-        self.check_for_row_in_list_table('1: HTML')
-        self.check_for_row_in_list_table('2: DJANGO')
+        self.check_for_row_in_list_table('HTML')
+        self.check_for_row_in_list_table('DJANGO')
 
         # Edith wonders whether the site will remember her list. Then she sees
         # that there is a back button
