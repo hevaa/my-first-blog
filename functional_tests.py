@@ -49,11 +49,28 @@ class NewVisitorTest(unittest.TestCase):
         # is web-dev)
         inputbox.send_keys('I am a web developer')
 
+
+        # Edith wonders whether the site will remember this. Then she sees
+        # that there is a back button
+
+        # She clicks it - her bio is still there on the main CV page.
+
+    def test_can_use_cv_add_page(self):
+        # She goes to the edit page
+        self.browser.get('http://127.0.0.1:8000/cv/edit/add')
+
+        # She is checks if she can add a skill
+        inputbox = self.browser.find_element_by_id('id_new_item')     
+
+        # She types into a text box (Edith's hobby
+        # is web-dev)
+        inputbox.send_keys('HTML')
+
         # When she hits enter, the page updates, and now the page lists
         # "1: HTML" as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('I am a web developer')
+        self.check_for_row_in_list_table('HTML')
 
         # There is still a text box inviting her to add another item. She
         # enters "DJANGO" (Edith is very methodical)
