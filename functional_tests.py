@@ -11,8 +11,8 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):  
         self.browser.quit()
 
-    def check_for_row_in_list_table(self, row_text):
-        table = self.browser.find_element_by_id('id_list_table')
+    def check_for_row_in_list_table(self, row_text, table):
+        table = self.browser.find_element_by_id(table)
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
 
@@ -70,18 +70,18 @@ class NewVisitorTest(unittest.TestCase):
         # "1: HTML" as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('HTML')
+        self.check_for_row_in_list_table('HTML', 'id_skills_table')
 
         # There is still a text box inviting her to add another item. She
         # enters "DJANGO" (Edith is very methodical)
-        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox = self.browser.find_element_by_id('id_new_skill')
         inputbox.send_keys('DJANGO')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
         # The page updates again, and now shows both items on her list
-        self.check_for_row_in_list_table('HTML')
-        self.check_for_row_in_list_table('DJANGO')
+        self.check_for_row_in_list_table('HTML', 'id_skills_table')
+        self.check_for_row_in_list_table('DJANGO', 'id_skills_table')
 
         # Edith wonders whether the site will remember her list. Then she sees
         # that there is a back button
