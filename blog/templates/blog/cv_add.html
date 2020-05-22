@@ -14,7 +14,7 @@
 
 {% block qual %}
     <form method="POST">
-	    <input name="item_text" id="id_new_item" placeholder="Enter a qualification" />
+	    <input name="item_text" id="id_new_qual" placeholder="Enter a qualification" />
 	    <input type="hidden" name="item_category" id="id_new_category" value="qual" />
 	    {% csrf_token %}
 	</form>
@@ -22,7 +22,7 @@
 
 {% block employ %}
     <form method="POST">
-	    <input name="item_text" id="id_new_item" placeholder="Enter employment history" />
+	    <input name="item_text" id="id_new_emply" placeholder="Enter employment history" />
 	    <input type="hidden" name="item_category" id="id_new_category" value="employ" />
 	    {% csrf_token %}
 	</form>
@@ -30,7 +30,7 @@
 
 {% block extra %}
     <form method="POST">
-	    <input name="item_text" id="id_new_item" placeholder="Enter extracurricular item" />
+	    <input name="item_text" id="id_new_extra" placeholder="Enter extracurricular item" />
 	    <input type="hidden" name="item_category" id="id_new_category" value="extra" />
 	    {% csrf_token %}
 	</form>
