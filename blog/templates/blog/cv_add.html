@@ -7,7 +7,7 @@
 {% block skills %}
     <form method="POST">
 	    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
-	    <div name="item_category">skills</div>
+	    <input type="hidden" name="item_category" id="id_new_category" value="skills" />
 	    {% csrf_token %}
 	</form>
 {% endblock %}
