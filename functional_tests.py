@@ -69,7 +69,7 @@ class NewVisitorTest(unittest.TestCase):
         # "•: HTML" as an item in a table
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('HTML', 'id_skills_table')
+        self.check_for_row_in_list_table('• HTML', 'id_skills_table')
 
         # There is still a text box inviting her to add another item. She
         # enters "DJANGO" (Edith is very methodical)
@@ -95,7 +95,7 @@ class NewVisitorTest(unittest.TestCase):
         # When she hits enter, the page updates
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('GCSE', 'id_qual_table')
+        self.check_for_row_in_list_table('• GCSE', 'id_qual_table')
 
         # There is still a text box inviting her to add another item.
         inputbox = self.browser.find_element_by_id('id_new_qual')
@@ -120,7 +120,7 @@ class NewVisitorTest(unittest.TestCase):
         # When she hits enter, the page updates
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('VODAFONE', 'id_employ_table')
+        self.check_for_row_in_list_table('• VODAFONE', 'id_employ_table')
 
         # There is still a text box inviting her to add another item.
         inputbox = self.browser.find_element_by_id('id_new_employ')
@@ -145,7 +145,7 @@ class NewVisitorTest(unittest.TestCase):
         # When she hits enter, the page updates
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        self.check_for_row_in_list_table('FISHING', 'id_extra_table')
+        self.check_for_row_in_list_table('• FISHING', 'id_extra_table')
 
         # There is still a text box inviting her to add another item.
         inputbox = self.browser.find_element_by_id('id_new_extra')
