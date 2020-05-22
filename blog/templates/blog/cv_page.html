@@ -23,7 +23,9 @@
 		    	<h2>Skills</h2>
 			    <table id="id_list_table">
 				    {% for item in items %}
-				        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+				    	{% if item.category == "skills" %}
+				        	<tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+				        {% endif %}
 				    {% endfor %}
 				</table>
 			</div>
