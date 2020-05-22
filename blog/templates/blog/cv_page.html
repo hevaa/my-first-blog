@@ -23,7 +23,15 @@
     <div class="col-md-6">
 
 		<h2>Bio</h2>
-		<p>bio</p>
+
+		<table id="id_list_table">
+		    {% for item in items %}
+		    	{% if item.category == "bio" %}
+		        	<tr><td>{{ item.text }}</td></tr>
+		        {% endif %}
+		    {% endfor %}
+		</table>
+
 	    {% block bio %}
 	    {% endblock %}
 
