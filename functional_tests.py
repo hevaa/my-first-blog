@@ -38,7 +38,6 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
-class EditCV(unittest.TestCase): 
     def test_can_use_cv_edit_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
