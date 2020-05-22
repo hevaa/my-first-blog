@@ -19,19 +19,12 @@
 	    {% endblock %}
 
 	    <h2>Skills</h2>
-	    <div class="row">
-		    <div class="col-md-4">
-			    <table id="id_list_table">
-				    {% for item in items %}
-				        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
-				    {% endfor %}
-				</table>
-			</div>
-			<div class="col-md-1">
-				{% block delete %}
-	    		{% endblock %}
-			</div>
-		</div>
+	   
+	    <table id="id_list_table">
+		    {% for item in items %}
+		        <tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+		    {% endfor %}
+		</table>
 
 	    {% block skills %}
 	    {% endblock %}

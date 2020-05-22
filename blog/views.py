@@ -62,7 +62,15 @@ def cv_edit(request):
 def cv_add(request):
     if request.method == 'POST':
         Item.objects.create(text=request.POST['item_text'])
-        return redirect('/cv/edit')
+        return redirect('/cv/add')
 
     items = Item.objects.all()
     return render(request, 'blog/cv_add.html', {'items': items})
+
+def cv_delete(request):
+    if request.method == 'POST':
+        Item.objects.filter(id=request.POST['item_ID']).delete()
+        return redirect('/cv/delete')
+
+    items = Item.objects.all()
+    return render(request, 'blog/cv_delete.html', {'items': items})
