@@ -1,25 +1,10 @@
 {% extends 'blog/cv_page.html' %}
 
-{% block header %}      
-    {% if user.is_authenticated %}
-        <a href="{% url 'cv_page' %}" class="top-menu"><span class="glyphicon glyphicon-arrow-left"></span></a>
-    {% endif %}
-{% endblock %}
-
-{% block bio %}
-	<p>bio</p>
+{% block cvheader %}
+    <a href="{% url 'cv_page' %}" class="top-menu"><span class="glyphicon glyphicon-arrow-left"></span></a>
 {% endblock %}
 
 {% block skills %}
     <a href="{% url 'cv_add' %}"><span class="glyphicon glyphicon-plus"></span></a>
     <a href="{% url 'cv_delete' %}"><span class="glyphicon glyphicon-minus"></span></a>
-{% endblock %}
-
-{% block qual %}
-{% endblock %}
-
-{% block employ %}
-{% endblock %}
-
-{% block extra %}
 {% endblock %}

@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+{% block header %}      
+    {% if user.is_authenticated %}
+    	{% block cvheader %}
+    	{% endblock %}
+    {% endif %}
+{% endblock %}
+
 {% block subheader %}
 	<h1>Curriculum vitae (CV)</h1>
 {% endblock %}
@@ -14,7 +21,9 @@
 		</div>
     </div>
     <div class="col-md-6">
+    	
 		<h2>Bio</h2>
+		<p>bio</p>
 	    {% block bio %}
 	    {% endblock %}
 
