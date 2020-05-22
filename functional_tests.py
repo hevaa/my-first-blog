@@ -43,7 +43,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
 
         # She is checks if she can edit her bio
-        inputbox = self.browser.find_element_by_id('id_new_item')     
+        inputbox = self.browser.find_element_by_id('id_new_bio')     
 
         # She types into a text box (Edith's hobby
         # is web-dev)
@@ -60,7 +60,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://127.0.0.1:8000/cv/edit/add')
 
         # She is checks if she can add a skill
-        inputbox = self.browser.find_element_by_id('id_new_item')     
+        inputbox = self.browser.find_element_by_id('id_new_skill')     
 
         # She types into a text box (Edith's hobby
         # is web-dev)

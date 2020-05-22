@@ -6,7 +6,7 @@
 
 {% block bio %}
 	<form method="POST">
-	    <textarea rows="5" cols="60" name="item_text" id="id_new_item">{% for item in items %}{% if item.category == "bio" %}{{ item.text }}{% endif %}{% endfor %}</textarea>
+	    <textarea rows="5" cols="60" name="item_text" id="id_new_bio">{% for item in items %}{% if item.category == "bio" %}{{ item.text }}{% endif %}{% endfor %}</textarea>
 	    <input type = "submit" value = "submit" />
 	    <input type="hidden" name="item_category" id="id_new_category" value="bio" />
 	    {% csrf_token %}
