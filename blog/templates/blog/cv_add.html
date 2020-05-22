@@ -11,3 +11,27 @@
 	    {% csrf_token %}
 	</form>
 {% endblock %}
+
+{% block qual %}
+    <form method="POST">
+	    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+	    <input type="hidden" name="item_category" id="id_new_category" value="qual" />
+	    {% csrf_token %}
+	</form>
+{% endblock %}
+
+{% block employ %}
+    <form method="POST">
+	    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+	    <input type="hidden" name="item_category" id="id_new_category" value="employ" />
+	    {% csrf_token %}
+	</form>
+{% endblock %}
+
+{% block extra %}
+    <form method="POST">
+	    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+	    <input type="hidden" name="item_category" id="id_new_category" value="extra" />
+	    {% csrf_token %}
+	</form>
+{% endblock %}

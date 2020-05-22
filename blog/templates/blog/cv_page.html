@@ -48,15 +48,66 @@
 	    {% block skills %}
 	    {% endblock %}
 
-	    <h2>Qualifications</h2>
+	     <div class="row">
+		    <div class="col-md-4">
+		    	<h2>Qualifications</h2>
+
+			    <table id="id_list_table">
+				    {% for item in items %}
+				    	{% if item.category == "qual" %}
+				        	<tr><td>• {{ item.text }}</td></tr>
+				        {% endif %}
+				    {% endfor %}
+				</table>
+			</div>
+			<div class="col-md-3">
+				{% block qualdelete %}
+	    		{% endblock %}
+			</div>
+		</div>
+	    
 	    {% block qual %}
 	    {% endblock %}
 
-	    <h2>Employment History</h2>
+	    <div class="row">
+		    <div class="col-md-4">
+		    	<h2>Employment History</h2>
+
+			    <table id="id_list_table">
+				    {% for item in items %}
+				    	{% if item.category == "employ" %}
+				        	<tr><td>• {{ item.text }}</td></tr>
+				        {% endif %}
+				    {% endfor %}
+				</table>
+			</div>
+			<div class="col-md-3">
+				{% block employdelete %}
+	    		{% endblock %}
+			</div>
+		</div>
+	    
 	    {% block employ %}
 	    {% endblock %}
 
-	    <h2>Extracurricular</h2>
+	    <div class="row">
+		    <div class="col-md-4">
+		    	<h2>Extracurricular</h2>
+
+			    <table id="id_list_table">
+				    {% for item in items %}
+				    	{% if item.category == "extra" %}
+				        	<tr><td>• {{ item.text }}</td></tr>
+				        {% endif %}
+				    {% endfor %}
+				</table>
+			</div>
+			<div class="col-md-3">
+				{% block extradelete %}
+	    		{% endblock %}
+			</div>
+		</div>
+	    
 	    {% block extra %}
 	    {% endblock %}
 	</div>
