@@ -61,7 +61,11 @@ def cv_edit(request):
 
 def cv_add(request):
     if request.method == 'POST':
-        Item.objects.create(text=request.POST['item_text'], category=request.POST['item_category'] )
+        category = request.POST['item_category']
+        if category == 'bio':
+            Item.objects.filter(category=category).delete()
+
+        Item.objects.create(text=request.POST['item_text'], category=category )
         return redirect('/cv/edit/add')
 
     items = Item.objects.all()
