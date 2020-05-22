@@ -53,8 +53,10 @@ def cv_page(request):
 
 def cv_edit(request):
     if request.method == 'POST':
-        Item.objects.create(text=request.POST['item_text'])
-        return redirect('/cv/edit')
+        Item.objects.filter(category='bio').delete()
+
+        Item.objects.create(text=request.POST['item_text'], category='bio' )
+        return redirect('/cv/edit/')
 
     items = Item.objects.all()
     return render(request, 'blog/cv_edit.html', {'items': items})
