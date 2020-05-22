@@ -58,3 +58,11 @@ def cv_edit(request):
 
     items = Item.objects.all()
     return render(request, 'blog/cv_edit.html', {'items': items})
+
+def cv_add(request):
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'])
+        return redirect('/cv/edit')
+
+    items = Item.objects.all()
+    return render(request, 'blog/cv_add.html', {'items': items})

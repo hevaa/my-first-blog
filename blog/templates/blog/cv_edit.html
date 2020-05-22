@@ -11,14 +11,7 @@
 {% endblock %}
 
 {% block skills %}
-    <form method="POST">
-	    <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
-	    {% csrf_token %}
-	</form>
-	<form method="POST">
-	    <input name="item_text" id="id_delete_item" placeholder="Enter ID to delete" />
-	    {% csrf_token %}
-	</form>
+    <a href="{% url 'cv_add' %}"><span class="glyphicon glyphicon-plus"></span></a>
 {% endblock %}
 
 {% block qual %}
