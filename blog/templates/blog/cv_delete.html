@@ -19,3 +19,51 @@
 	    {% csrf_token %}
 	</form>
 {% endblock %}
+
+{% block qualdelete %}
+	<h2>Database ID</h2>
+	<table id="id_list_table">
+	    {% for item in items %}
+	    	{% if item.category == "qual" %}
+	        	<tr><td>{{ item.id }}</td></tr>
+	        {% endif %}
+	    {% endfor %}
+	</table>
+
+	<form method="POST">
+	    <input name="item_ID" id="id_delete_item" placeholder="Enter Database ID to delete" />
+	    {% csrf_token %}
+	</form>
+{% endblock %}
+
+{% block employdelete %}
+	<h2>Database ID</h2>
+	<table id="id_list_table">
+	    {% for item in items %}
+	    	{% if item.category == "employ" %}
+	        	<tr><td>{{ item.id }}</td></tr>
+	        {% endif %}
+	    {% endfor %}
+	</table>
+
+	<form method="POST">
+	    <input name="item_ID" id="id_delete_item" placeholder="Enter Database ID to delete" />
+	    {% csrf_token %}
+	</form>
+{% endblock %}
+
+{% block extradelete %}
+	<h2>Database ID</h2>
+	<table id="id_list_table">
+	    {% for item in items %}
+	    	{% if item.category == "extra" %}
+	        	<tr><td>{{ item.id }}</td></tr>
+	        {% endif %}
+	    {% endfor %}
+	</table>
+
+	<form method="POST">
+	    <input name="item_ID" id="id_delete_item" placeholder="Enter Database ID to delete" />
+	    {% csrf_token %}
+	</form>
+{% endblock %}
