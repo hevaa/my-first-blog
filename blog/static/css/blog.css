@@ -69,8 +69,8 @@ h1, h2, h3, h4 {
 .specialmsg h1 {
     font-size: 50pt;
     font-family: 'Lobster', cursive;
-    margin-top: 30%;
-    margin-bottom: 50%;
+    margin-top: 20%;
+    margin-bottom: 20%;
 }
 
 .contact {
