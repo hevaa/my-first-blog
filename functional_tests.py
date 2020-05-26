@@ -43,7 +43,13 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
 
         # She is checks if she can edit her bio
-        inputbox = self.browser.find_element_by_id('id_new_bio')     
+        inputbox = self.browser.find_element_by_id('id_new_bio')
+
+        ## she checks that the message already there is the current bio: making it easy to edit
+        self.assertEqual(
+	       inputbox.get_attribute('value'),
+	        'this is a test bio'
+	    )     
 
         # She types into a text box (Edith's hobby
         # is web-dev)
