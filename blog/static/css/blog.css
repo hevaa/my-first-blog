@@ -77,11 +77,21 @@ h1, h2, h3, h4 {
 }
 
 .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
+    height:60px;
     background-color: #525252;
     color: #a1a1a1;
     text-align: center;
 }
 
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#body {
+   padding:10px;
+   padding-bottom:60px;
+}
