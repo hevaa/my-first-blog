@@ -67,6 +67,12 @@ class NewVisitorTest(unittest.TestCase):
         # She is checks if she can add a skill
         inputbox = self.browser.find_element_by_id('id_new_skill')     
 
+        ## she checks that the add placeholder has the correct message
+        self.assertEqual(
+	       inputbox.get_attribute('placeholder'),
+	        'Enter a skill'
+	    ) 
+
         # She types into a text box (Edith's hobby
         # is web-dev)
         inputbox.send_keys('HTML')
@@ -95,6 +101,12 @@ class NewVisitorTest(unittest.TestCase):
         # She is checks if she can add her qualifications
         inputbox = self.browser.find_element_by_id('id_new_qual')     
 
+        ## she checks that the add placeholder has the correct message
+        self.assertEqual(
+	       inputbox.get_attribute('placeholder'),
+	        'Enter a qualification'
+	    ) 
+
         # She types into a text box
         inputbox.send_keys('GCSE')
 
@@ -120,6 +132,12 @@ class NewVisitorTest(unittest.TestCase):
         # She is checks if she can add her employment history
         inputbox = self.browser.find_element_by_id('id_new_employ')     
 
+        ## she checks that the add placeholder has the correct message
+        self.assertEqual(
+	       inputbox.get_attribute('placeholder'),
+	        'Enter employment history'
+	    ) 
+
         # She types into a text box
         inputbox.send_keys('VODAFONE')
 
@@ -144,6 +162,12 @@ class NewVisitorTest(unittest.TestCase):
 
         # She is checks if she can add extracurricular
         inputbox = self.browser.find_element_by_id('id_new_extra')     
+
+        ## she checks that the add placeholder has the correct message
+        self.assertEqual(
+	       inputbox.get_attribute('placeholder'),
+	        'Enter extracurricular item'
+	    ) 
 
         # She types into a text box
         inputbox.send_keys('FISHING')
