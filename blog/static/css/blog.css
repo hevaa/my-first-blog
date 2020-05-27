@@ -66,11 +66,18 @@ h1, h2, h3, h4 {
     text-decoration: none;
 }
 
-.specialmsg h1 {
-    font-size: 50pt;
-    font-family: 'Lobster', cursive;
+.specialmsg {
     margin-top: 20%;
     margin-bottom: 20%;
+}
+
+.specialmsg h1 {
+    background: rgb(209,209,209);
+    border-radius: 25px;
+    font-size: 50pt;
+    font-family: 'Lobster', cursive;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .contact {
