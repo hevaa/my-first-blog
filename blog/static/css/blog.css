@@ -73,11 +73,11 @@ h1, h2, h3, h4 {
 
 .specialmsg h1 {
     background: rgb(209,209,209);
-    border-radius: 25px;
+    border-radius: 100px;
     font-size: 50pt;
     font-family: 'Lobster', cursive;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .contact {
