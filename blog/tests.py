@@ -71,11 +71,11 @@ class ItemModelTest(TestCase):
         self.client.get('/cv/edit/add')
         self.assertEqual(Item.objects.count(), 0)
 
-    #def test_displays_all_list_items(self):
-    #    Item.objects.create(text='itemey 1')
-    #    Item.objects.create(text='itemey 2')
+    def test_displays_all_list_items(self):
+        Item.objects.create(text='itemey 1',category='skills')
+        Item.objects.create(text='itemey 2',category='skills')
 
-    #    response = self.client.get('/')
+        response = self.client.get('/cv/edit/add')
 
-    #    self.assertIn('itemey 1', response.content.decode())
-    #    self.assertIn('itemey 2', response.content.decode())
+        self.assertIn('itemey 1', response.content.decode())
+        self.assertIn('itemey 2', response.content.decode())
