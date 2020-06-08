@@ -67,9 +67,9 @@ class ItemModelTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['location'], '/cv/edit/add')
 
-    #def test_only_saves_items_when_necessary(self):
-    #    self.client.get('/')
-    #    self.assertEqual(Item.objects.count(), 0)
+    def test_only_saves_items_when_necessary(self):
+        self.client.get('/cv/edit/add')
+        self.assertEqual(Item.objects.count(), 0)
 
     #def test_displays_all_list_items(self):
     #    Item.objects.create(text='itemey 1')
