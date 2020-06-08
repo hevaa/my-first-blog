@@ -55,13 +55,12 @@ class ItemModelTest(TestCase):
         self.assertEqual(first_saved_item.text, 'The first (ever) list item')
         self.assertEqual(second_saved_item.text, 'Item the second')
 
-##SAVED TEST
-    #def test_can_save_a_POST_request(self):
-    #    self.client.post('/', data={'item_text': 'A new list item'})
+    def test_can_save_a_POST_request(self):
+        self.client.post('/cv/edit/add', data={'item_text': 'A new list item', 'item_category': 'skills'})
 
-    #    self.assertEqual(Item.objects.count(), 1)
-    #    new_item = Item.objects.first()
-    #    self.assertEqual(new_item.text, 'A new list item')
+        self.assertEqual(Item.objects.count(), 1)
+        new_item = Item.objects.first()
+        self.assertEqual(new_item.text, 'A new list item')
 
     #def test_redirects_after_POST(self):
     #    response = self.client.post('/', data={'item_text': 'A new list item'})
