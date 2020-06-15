@@ -83,7 +83,6 @@ h1, h2, h3, h4 {
 }
 
 .contact {
-    background-color: rgb(64,146,186);
     color: #FFFFFF;
     border-radius: 25px;
     padding: 20px;
@@ -92,6 +91,15 @@ h1, h2, h3, h4 {
 .contactone {
     margin-bottom: 50px;
 }
+
+.sectionone {
+    background-color: rgb(64,146,186);
+}
+
+.sectiontwo {
+    background-color: rgb(115, 166, 191);
+}
+
 .description {
     margin-bottom: 30px;
     color: #828282;
