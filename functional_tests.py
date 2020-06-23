@@ -50,6 +50,13 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn('Email: someone@example.com', [contact.text for contact in contacts])
         self.assertIn('Number: 07123456789', [contact.text for contact in contacts])
 
+        # She reads the current position information
+        contacttwo = self.browser.find_element_by_class_name('contacttwo')
+        position = contacttwo.find_elements_by_tag_name('p')
+        self.assertIn('Current academia: University of Birmingham', [pos.text for pos in position])
+        self.assertIn('Current year: Second Year', [pos.text for pos in position])
+        self.assertIn('Current position: Degree Apprentice', [pos.text for pos in position])
+
     def test_can_use_cv_edit_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
