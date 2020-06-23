@@ -67,12 +67,12 @@ class NewVisitorTest(unittest.TestCase):
         ## she checks that the message already there is the current bio: making it easy to edit
         self.assertEqual(
 	       inputbox.get_attribute('value'),
-	        'this is a test bio'
+	        'This is a test bio'
 	    )     
 
-        # She types into a text box (Edith's hobby
-        # is web-dev)
-        inputbox.send_keys('I am a web developer')
+        # She types into a text box (Edith's hobby is web-dev)
+        # She knows that it starts including her previous bio, making it easy for her to add something
+        inputbox.send_keys(' and I am a web developer')
 
         # She submits the bio
         self.browser.find_element_by_class_name('submit').click()
@@ -80,10 +80,10 @@ class NewVisitorTest(unittest.TestCase):
         # Edith wonders whether the site will remember this. Then she sees the page updates.
         # her bio is there updated and previewed.
         newbio = self.browser.find_element_by_id('id_new_bio')
-        
+
         self.assertEqual(
            newbio.get_attribute('value'),
-            'I am a web developer'
+            'This is a test bio and I am a web developer'
         )    
 
     def test_cv_add_skill_page(self):
