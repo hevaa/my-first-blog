@@ -74,10 +74,17 @@ class NewVisitorTest(unittest.TestCase):
         # is web-dev)
         inputbox.send_keys('I am a web developer')
 
-        # Edith wonders whether the site will remember this. Then she sees
-        # that there is a back button
+        # She submits the bio
+        self.browser.find_element_by_class_name('submit').click()
 
-        # She clicks it - her bio is still there on the main CV page.
+        # Edith wonders whether the site will remember this. Then she sees the page updates.
+        # her bio is there updated and previewed.
+        newbio = self.browser.find_element_by_id('id_new_bio')
+        
+        self.assertEqual(
+           newbio.get_attribute('value'),
+            'I am a web developer'
+        )    
 
     def test_cv_add_skill_page(self):
         # She goes to the edit page
