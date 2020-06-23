@@ -38,6 +38,12 @@ class NewVisitorTest(unittest.TestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text  
         self.assertIn('Heather\'s Blog', header_text)
 
+        # She reads the static side of the page
+        specialsection = self.browser.find_element_by_class_name('specialmsg')
+        specialmsg = specialsection.find_element_by_tag_name('h1').text
+        # She ensures there is a breakline as designed
+        self.assertIn('Hey,\nI\'m Heather!', specialmsg)
+
     def test_can_use_cv_edit_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
