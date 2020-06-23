@@ -44,6 +44,12 @@ class NewVisitorTest(unittest.TestCase):
         # She ensures there is a breakline as designed
         self.assertIn('Hey,\nI\'m Heather!', specialmsg)
 
+        # She reads the contact information
+        contactone = self.browser.find_element_by_class_name('contactone')
+        contacts = contactone.find_elements_by_tag_name('p')
+        self.assertIn('Email: someone@example.com', [contact.text for contact in contacts])
+        self.assertIn('Number: 07123456789', [contact.text for contact in contacts])
+
     def test_can_use_cv_edit_page(self):
         # She goes to the edit page
         self.browser.get('http://127.0.0.1:8000/cv/edit/')
